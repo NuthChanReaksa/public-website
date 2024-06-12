@@ -16,7 +16,7 @@ const CardComponent = () => {
                 Academic Year</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {programs2.map((program, index) => (
-                    <div key={index} className="relative h-full">
+                    <div key={index} className="relative h-full transition hover:scale-105">
                         <Image src={program.image} alt={program.title}
                                width={500}
                                height={600}

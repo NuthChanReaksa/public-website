@@ -27,17 +27,17 @@ export const MenuList: MenuItem[] = [
     },
     {
         name: "SCHOLARSHIP",
-        path: "/",
+        path: "/scholarship",
         active: false,
     },
     {
         name: "NEW & EVENT",
-        path: "/news&event",
+        path: "/newsEvent",
         active: false,
     },
     {
         name: "LEARNING PORTAL",
-        path: "/",
+        path: "/learningPortal",
         active: false,
     }
 ];

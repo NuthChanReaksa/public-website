@@ -4,36 +4,34 @@ import Link from "next/link";
 
 const CardEvent = () => {
     return (
-        <div className="w-full mb-8">
+        <div className="mb-8 max-w-full mx-auto">
             <Link href="#"
-                  className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+                  className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row md:max-w-full hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                 <Image
-                    src="/news&event/new-image-1.png"
+                    src="/scholarship-image.png"
                     alt="Scholarship Announcement"
-                    className="object-cover w-full md:w-auto md:max-w-96 md:h-96 md:rounded-none md:rounded-t-lg"
-                    width={800}
-                    height={800}
+                    className="object-cover w-full md:w-1/2 rounded-t-lg md:rounded-none md:rounded-l-lg p-8"
+                    width={960}
+                    height={540}
                 />
-                <div className="flex flex-col justify-between p-4 w-full leading-normal">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight ">
+                <div className="flex flex-col justify-between p-8 leading-normal w-full md:w-1/2">
+                    <h5 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         សេចក្តីជូនដំណឹង <br/>
                         ស្តីអំពីអាហារូបករណ៍បច្ចេកវិទ្យាឌីជីថល​ <br/>
                         (អាយធី) <br/>
                     </h5>
-                    <p className="mb-3 font-normal text-gray-80 dark:text-gray-400">
-                        CSTAD ផ្តល់ជូនអាហារូបករណ៍ ​១០០%ចំនួន ៦០កន្លែង <br/>
-                        អាហារូបករណ៍នេះជំនួយដល់និស្សិតដែលចង់ពង្រឹងមូលដ្ឋានគ្រឹះ <br/>
-                        បច្ចេកវិទ្យាឌីជីថល(​អាយធី) ដែលមានវគ្គសិក្សា.............</p>
+                    <p className="mb-6 font-normal text-gray-700 dark:text-gray-400">
+                        CSTAD ផ្តល់ជូនអាហារូបករណ៍ ​១០០%ចំនួន ៦០កន្លែងអាហារូបករណ៍ <br/>
+                        នេះជំនួយដល់និស្សិតដែលចង់ពង្រឹងមូលដ្ឋានគ្រឹះបច្ចេកវិទ្យា <br/>
+                        ឌីជីថល(​អាយធី) ដែលមានវគ្គសិក្សា.............</p>
 
-                    <div
-                        className={"flex items-center text-sm mb-2 text-primary"}>
-                        <span>phnom penh</span>
+                    <div className="flex items-center text-sm text-primary dark:text-gray-400">
+                        <span>Phnom Penh</span>
                         <span className="mx-2">|</span>
-                        <span>October 22, 2023</span>
+                        <span>May 9, 2024</span>
                     </div>
                 </div>
             </Link>
-
         </div>
     );
 };

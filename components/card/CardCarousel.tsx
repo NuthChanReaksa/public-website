@@ -8,14 +8,15 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 // Adjusted to include the correct path for a local image
 const images = [
-    '/logo-cstad.png', // Example of a local image path
-    '/logo-image.png', // Another example
-    '/yet-another-image.png', // And another one
-    '/final-image.png', // Last example
-    '/logo-cstad.png', // Repeated for demonstration
+    '/logo-cstad.png',
+    '/logo-image.png',
+    '/yet-another-image.png',
+    '/final-image.png',
+    '/logo-cstad.png',
 ];
 
 export function CardCarousel() {
@@ -28,7 +29,7 @@ export function CardCarousel() {
                             <Card>
                                 <CardContent className="flex rounded-full items-center justify-center p-6">
                                     {/* Correctly referencing the local image */}
-                                    <img src={image} alt={`Image ${index + 1}`} className="rounded-full" />
+                                    <Image src={image} alt={`Image ${index + 1}`} className="rounded-full" />
                                 </CardContent>
                             </Card>
                         </div>

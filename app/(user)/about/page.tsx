@@ -1,17 +1,22 @@
-import React from 'react';
+'use client';
+import React, {useEffect, useRef} from 'react';
 import Image from "next/image";
-import CardCarousel from "@/components/card/CardCarousel";
 import Link from "next/link";
 import {FaBullseye, FaFacebook, FaTelegram, FaYoutube} from "react-icons/fa";
 import {IoCall, IoEyeSharp, IoLocation} from "react-icons/io5";
 import {SiGmail} from "react-icons/si";
 import {BiWorld} from "react-icons/bi";
-
+import AOS from "aos";
+import 'aos/dist/aos.css';
+import {CarouselSize} from "@/components/card/CarouselCardComponent";
 
 const Page = () => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
         <div className={"white-s"}>
-
 
 
             {/* banner start here */}
@@ -45,7 +50,7 @@ const Page = () => {
             {/* banner end here */}
 
             {/*introduction start here */}
-            <div className="container my-24">
+            <div className="container my-12 py-12">
                 <div className={"text-3xl font-bold mb-16 text-error "}>
                     ABOUT US
                 </div>
@@ -60,8 +65,8 @@ const Page = () => {
             {/*introduction end here */}
 
             {/* Description 1 Start Here */}
-            <div className="container flex items-center flex-wrap justify-center my-24">
-                <div className="w-full md:w-1/2 p-4">
+            <div className="container flex items-center flex-wrap justify-center my-12 py-12">
+                <div data-aos-duration="1000" data-aos="zoom-in" className="w-full md:w-1/2 p-4">
                     <div className="border-l-4 border-error pl-4 ml-20">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold leading-tight sm:leading-tight md:leading-snug lg:leading-snug text-start text-primary ml-8">
                             CSTAD
@@ -76,7 +81,7 @@ const Page = () => {
                         </p>
                     </div>
                 </div>
-                <div className="w-full md:w-1/2 p-4">
+                <div data-aos-duration="1000" data-aos="zoom-in-up" className="w-full md:w-1/2 p-4">
                     {/* Responsive Image */}
                     <Image
                         src="/about/about-image-1.png"
@@ -90,8 +95,8 @@ const Page = () => {
             {/* Description 1 End Here */}
 
             {/* Description 2 Start Here */}
-            <div className="container flex items-center flex-wrap justify-center my-24">
-                <div className="w-full md:w-1/2 p-4">
+            <div className="container flex items-center flex-wrap justify-center my-12 py-12">
+                <div data-aos-duration="1000" data-aos="zoom-in-right" className="w-full md:w-1/2 p-4">
                     {/* Responsive Image */}
                     <Image
                         src="/about/about-image-2.png"
@@ -101,7 +106,7 @@ const Page = () => {
                         className="mx-auto w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
                     />
                 </div>
-                <div className="w-full md:w-1/2 p-4">
+                <div data-aos-duration="1000" data-aos="zoom-out-left" className="w-full md:w-1/2 p-4">
                     <div className=" border-l-4 border-error pl-4 ml-20">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold leading-tight sm:leading-tight md:leading-snug lg:leading-snug text-start text-primary ml-8">
                             CSTAD
@@ -118,21 +123,22 @@ const Page = () => {
             </div>
             {/* Description 2 End Here */}
 
-
-
-
-            <section className="my-24">
+            {/*our mission and vision start here*/}
+            <section className="my-12 py-12">
                 <div className="container flex flex-col md:flex-row md:space-x-6 ">
-                    <div className="flex-1 mb-6 md:mb-0 bg-white p-6 rounded-lg shadow-md text-gray-80 tracking-wide h-auto md:h-96 w-full md:w-1/2">
+                    <div data-aos-duration="1000" data-aos="zoom-in-right"
+                         className="flex-1 mb-6 md:mb-0 bg-white p-6 rounded-lg shadow-sm text-gray-80 tracking-wide h-auto md:h-96 w-full md:w-1/2">
                         <h2 className="flex items-center text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold leading-tight sm:leading-tight md:leading-snug lg:leading-snug text-start ml-8 text-primary">
                             <IoEyeSharp className="w-16 h-16 mr-3"/>Vision</h2>
-                        <p className={"text-lg sm:text-base md:text-lg lg:text-lg mt-4 md:mt-6 lg:mt-8 text-start text-gray-80 tracking-wide ml-8"}>To become the leading IT institute in Cambodia,
+                        <p className={"text-lg sm:text-base md:text-lg lg:text-lg mt-4 md:mt-6 lg:mt-8 text-start text-gray-80 tracking-wide ml-8"}>To
+                            become the leading IT institute in Cambodia,
                             empowering individuals with cutting-edge technological
                             skills, fostering innovation, and contributing to
                             the digital transformation of the nation.
                         </p>
                     </div>
-                    <div className="flex-1 bg-white p-6 rounded-lg shadow-md text-gray-80 tracking-wide h-auto md:h-96 w-full md:w-1/2">
+                    <div data-aos-duration="1000" data-aos="zoom-out"
+                         className="flex-1 bg-white p-6 rounded-lg shadow-sm text-gray-80 tracking-wide h-auto md:h-96 w-full md:w-1/2">
                         <h2 className="flex items-center text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold leading-tight sm:leading-tight md:leading-snug lg:leading-snug text-start text-primary ml-8">
                             <FaBullseye className="w-16 h-16 mr-3"/> Mission</h2>
                         <ul className="list-disc list-inside text-4xl sm:text-base md:text-lg lg:text-lg mt-4 md:mt-6 lg:mt-8 text-start text-gray-80 tracking-wide ml-8">
@@ -143,20 +149,12 @@ const Page = () => {
                     </div>
                 </div>
             </section>
+            {/*our mission and vision end here*/}
 
             {/*    our partners start here*/}
-            <section className="mb-12 my-24 bg-white-80">
-                <h2 className="text-2xl font-bold mb-4 text-start text-error ml-24">Our Partners</h2>
-                <div className="flex flex-wrap justify-center items-center space-x-4 gap-3">
-                    {/* Assuming these are image URLs */}
-                    <Image src="/logo/logo-image.png" width={150} height={150} alt="Partner 1"/>
-                    <Image src="/logo/logo-cstad.png" width={150} height={150} alt="Partner 2"/>
-                    <Image src="/logo/logo-image.png" width={150} height={150} alt="Partner 3"/>
-                    <Image src="/logo/logo-image.png" width={150} height={150} alt="Partner 4"/>
-                    <Image src="/logo/logo-image.png" width={150} height={150} alt="Partner 5"/>
-                </div>
-            </section>
+            <CarouselSize/>
             {/*    our partners start here*/}
+
             <section className="container text-start bg-white-80 tracking-wide my-24">
                 <h2 className="text-2xl font-bold mb-4 text-error ">Connect with CSTAD</h2>
                 <p className="text-4xl font-bold mb-4 text-primary">If you have any questions, please feel free to

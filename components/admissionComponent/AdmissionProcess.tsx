@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 const AdmissionProcess = () => {
     return (
@@ -18,12 +19,17 @@ const AdmissionProcess = () => {
                     ensure you meet all requirements and submit a complete application.
                 </p>
                 <div className="flex flex-row items-start justify-start space-x-8">
-                    <Button className="bg-primary text-white-80 font-bold w-full sm:w-auto">
-                        Admission Process
-                    </Button>
-                    <Button className="bg-primary text-white-80 font-bold w-full sm:w-auto">
-                        Admission Criteria
-                    </Button>
+                    <Link href={"/admissionProcess"}>
+                        <Button className="bg-primary text-white-80 font-bold w-full sm:w-auto">
+                            Admission Process
+                        </Button>
+                    </Link>
+                    <Link href={"/admissionCriteria"}>
+                        <Button className="bg-primary text-white-80 font-bold w-full sm:w-auto">
+                            Admission Criteria
+                        </Button>
+                    </Link>
+
                 </div>
             </div>
 

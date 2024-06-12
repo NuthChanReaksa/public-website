@@ -1,25 +1,17 @@
 'use client';
 import React from 'react';
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
 const HomeBanner2 = () => {
     const [currentImage, setCurrentImage] = React.useState(0);
     const images = [
-        "/banner-image.png",
-        "/banner2.png",
-        "/admission-image.png"
+        '/banner-image.png',
+        '/banner2.png',
+        '/admission-image.png',
     ];
 
-    React.useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImage(prevImage => (prevImage + 1) % images.length);
-        }, 5000); // Change image every 5 seconds
-
-        return () => clearInterval(interval);
-    }, [images.length]);
-
-    const goToImage = (index:any) => {
+    const goToImage = (index: number) => {
         setCurrentImage(index);
     };
 
@@ -31,22 +23,34 @@ const HomeBanner2 = () => {
         setCurrentImage((prevImage) => (prevImage + 1) % images.length);
     };
 
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            goToNextImage();
+        }, 3000); // Change image every 5 seconds
+
+        return () => clearInterval(interval);
+    }, [goToNextImage]); // Add goToNextImage to the dependency array
+
     return (
-        <div className={"my-24 relative"}>
+        <div className="my-12 relative w-full">
+            {/* Background overlay */}
+            <div className="absolute inset-0 bg-black opacity-50 z-10"></div>
             {/* Carousel wrapper */}
-            <div className="lg:h-[580px] md:h-96 sm:h-68 h-[500px] overflow-hidden relative">
-                {/* Background overlay */}
-                <div className="absolute inset-0 z-10"></div>
-                {/* Item */}
-                <div className="shadow-sm">
-                    <Image
-                        src={images[currentImage]}
-                        className="absolute block w-full h-full object-cover transition-opacity duration-500"
-                        width={1920}
-                        height={1080}
-                        alt="banner image"
-                    />
-                </div>
+            <div className="relative lg:h-[580px] md:h-96 sm:h-68 h-[500px] overflow-hidden rounded-lg">
+                {images.map((src, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 transition-transform duration-700 ease-in-out ${currentImage === index ? 'translate-x-0' : currentImage === (index - 1 + images.length) % images.length ? '-translate-x-full' : 'translate-x-full'}`}
+                    >
+                        <Image
+                            src={src}
+                            className="block w-full h-full object-cover"
+                            width={1920}
+                            height={1080}
+                            alt="banner image"
+                        />
+                    </div>
+                ))}
                 <div className="absolute inset-0 flex items-center justify-start text-white z-20 p-4 md:p-6 lg:p-8 ml-4 sm:ml-6 md:ml-8 lg:ml-12">
                     <div className="flex flex-col items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-2">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight sm:leading-tight md:leading-snug lg:leading-snug text-success">
@@ -78,7 +82,7 @@ const HomeBanner2 = () => {
                         <button
                             key={index}
                             onClick={() => goToImage(index)}
-                            className={`w-4 h-4 rounded-full ${currentImage === index? 'bg-primary' : 'bg-gray-300'}`}
+                            className={`w-4 h-4 rounded-full ${currentImage === index ? 'bg-primary' : 'bg-gray-300'}`}
                         />
                     ))}
                 </div>
